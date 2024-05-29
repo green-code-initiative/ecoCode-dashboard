@@ -1,0 +1,12 @@
+# Ignore all files and folders starting with ".", except a few exceptions
+.*
+!.gitignore
+!.gitattributes
+!.github/
+
+# Ignore generated files
+target
+bin
+
+# Ignore IDE files
+*.iml
