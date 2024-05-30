@@ -1,0 +1,14 @@
+{
+	"title": "Ban SELECT * from your SQL queries",
+	"type": "CODE_SMELL",
+	"status": "ready",
+	"tags":
+	[
+		"greensight",
+		"disk",
+		"ram",
+		"cpu",
+		"network"
+	],
+	"defaultSeverity": "Critical"
+}

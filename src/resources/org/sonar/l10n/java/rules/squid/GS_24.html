@@ -1,0 +1,16 @@
+<div>
+    <p>Rather than creating a boxed primitive from a String to extract the primitive value, use the relevant parse method instead. It will be clearer and more efficient.</p>
+</div>
+<div>
+    <h2>Example</h2>
+    <p>Avoid:</p>
+    <pre>
+	    String myNum = "12.2";
+        float f = (new Float(myNum)).floatValue();
+	</pre>
+    <p>Prefer:</p>
+    <pre>
+	    String myNum = "12.2";
+        float f = Float.parseFloat(myNum);
+	</pre>
+</div>

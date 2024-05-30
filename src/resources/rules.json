@@ -1,0 +1,30 @@
+{
+    "rules": [{
+            "engineId": "eslint_repo",
+            "ruleId": "greensight/avoid-empty-methods",
+            "name": "Avoid empty methods",
+            "severity": "MINOR",
+            "description": "Empty methods will end up consuming CPU and RAM although they do nothing. Best is to get rid of empty functions, throw a relevant exception, or at least explain why function is empty in a comment.",
+            "type": "CODE_SMELL",
+            "tags": ["greensight", "cpu", "ram"]
+        },
+        {
+            "engineId": "eslint_repo",
+            "ruleId": "greensight/query-not-select-star",
+            "name": "Ban SELECT * from your SQL queries",
+            "severity": "CRITICAL",
+            "description": "SELECT * forces the database system to retrieve all columns for all rows eligible, which can lead to massive amounts of data triggering hardware for no good reason. \nTo avoid this, you must name which columns should be selected",
+            "type": "CODE_SMELL",
+            "tags": ["greensight", "cpu", "ram", "network", "disk"]
+        },
+        {
+            "engineId": "eslint_repo",
+            "ruleId": "greensight/var-not-increment-or-decrement-unused",
+            "name": "Do not increment nor decrement unused variables",
+            "severity": "MAJOR",
+            "description": "Ne pas incrémenter / décrémenter les variables non utilisées.",
+            "type": "CODE_SMELL",
+            "tags": ["greensight", "cpu", "ram"]
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Limit instructions inside a switch case",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "tags":
+  [
+	"greensight",
+	"cpu",
+	"ram"
+  ],
+  "defaultSeverity": "Minor"
+}

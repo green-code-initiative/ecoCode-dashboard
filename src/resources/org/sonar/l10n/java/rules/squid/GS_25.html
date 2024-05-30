@@ -1,0 +1,18 @@
+<div>
+	<p>REGEX are very expensive in Java so it is better to use them StringToTokenizer rather than str.split (“,”).</p>
+</div>
+<div>
+	<h2>Example</h2>
+	<p>Avoid:</p>
+	<pre>
+		String string = "004-034556";
+        String[] parts = string.split("-"); // Noncompliant
+	</pre>
+	<p>Prefer:</p>
+	<pre>
+		StringTokenizer st =  new  StringTokenizer( "004-034556" , "-" );  
+        while  (st.hasMoreTokens()) {  
+            System.out.println(st.nextToken());  
+        } 
+	</pre>
+</div>

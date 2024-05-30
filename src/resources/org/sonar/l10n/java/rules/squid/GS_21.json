@@ -1,0 +1,10 @@
+{
+    "title": "Objects should not be created only to \"getClass\"",
+    "type": "CODE_SMELL",
+    "status": "ready",
+    "tags": [
+        "greensight",
+        "ram"
+      ],
+    "defaultSeverity": "Major"
+  }

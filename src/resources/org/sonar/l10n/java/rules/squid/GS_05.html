@@ -1,0 +1,20 @@
+<div>
+    <p>By definition less specific, generic exceptions are usually handled in a less precise way, which can lead to the wrong level of processing. They might therefore consume more CPU or RAM than necessary.</p>
+</div>
+<div>
+    <h2>Example</h2>
+    <p>Avoid:</p>
+    <pre>
+        public void foo(String bar) throws Exception
+        {
+            throw new Exception("My Message");    
+        }
+    </pre>
+    <p>Prefer:</p>
+    <pre>
+        public void foo(String bar) throws MyCustomException
+        {
+            throw new MyCustomException("My Message");
+        }
+    </pre>
+</div>

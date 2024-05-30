@@ -1,0 +1,34 @@
+<div>
+    <p>
+		Having a lot of fields per class is an indication that it has grown too large. Above a specific threshold, it is strongly advised to refactor said class into smaller ones which focus on well-defined topics.
+	</p>
+</div>
+<div>
+    <h2>Example</h2>
+    <p>Avoid:</p>
+    <pre>
+		class LotsOfFields {
+    		public int field1;
+    		public String field2;
+    		private boolean field3;
+    		protected char field4;
+    		public double field5;
+    		public Field field6;
+			...
+		}
+	</pre>
+    <p>Opt for:</p>
+    <pre>
+		class SomeFields1 {
+    		public int field1;
+    		public String field2;
+    		private boolean field3;
+		}
+
+		class SomeFields2 {
+    		protected char field4;
+    		public double field5;
+    		public Field field6;
+		}
+	</pre>
+</div>

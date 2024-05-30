@@ -1,0 +1,13 @@
+{
+  "title": "Number of lines per file should not exceed a set threshold.",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "tags":
+  [
+    "greensight",
+    "cpu",
+    "ram",
+    "maintenance"
+  ],
+  "defaultSeverity": "Critical"
+}

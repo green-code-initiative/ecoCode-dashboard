@@ -1,0 +1,27 @@
+<div>
+    <p>
+        Having a lot of methods per class is an indication that it has grown too large. Above a specific threshold, it is strongly advised to refactor said class into smaller ones which focus on well-defined topics.
+    </p>
+</div>
+<div>
+    <h2>Example</h2>
+    <p>Avoid:</p>
+    <pre>
+		class LotsofMethods {
+            public public LotsOfFields() {}
+            public LotsOfFields(int field1) {}
+            public LotsOfFields(int field1, String field2){}
+            private int addition(int nb1, int nb2) { return nb1 + nb2; }
+        }
+	</pre>
+    <p>Opt for:</p>
+    <pre>
+		class SomeMethods {
+            public public LotsOfFields() {}
+            public LotsOfFields(int field1) {}
+        }
+        class RestOfMethods {
+            private int addition(int nb1, int nb2) { return nb1 + nb2; }
+        }
+	</pre>
+</div>

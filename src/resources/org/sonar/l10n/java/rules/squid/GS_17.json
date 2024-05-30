@@ -1,0 +1,13 @@
+{
+	"title": "Loops should not contain more than a single break or continue statement",
+	"type": "CODE_SMELL",
+	"status": "ready",
+	"tags":
+	[
+		"greensight",
+		"cpu",
+		"ram",
+		"maintenance"
+	],
+	"defaultSeverity": "Critical"
+}

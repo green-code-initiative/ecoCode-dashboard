@@ -1,0 +1,12 @@
+{
+	"title": "Do not declare variables that will not be used",
+	"type": "CODE_SMELL",
+	"status": "ready",
+	"tags":
+	[
+		"greensight",
+		"cpu",
+		"ram"
+	],
+	"defaultSeverity": "Major"
+}

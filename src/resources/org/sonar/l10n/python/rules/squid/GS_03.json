@@ -1,0 +1,11 @@
+{
+  "title": "Prefer str.join() to concatenate string",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "tags":
+  [
+    "greensight",
+    "cpu"
+  ],
+  "defaultSeverity": "Major"
+}

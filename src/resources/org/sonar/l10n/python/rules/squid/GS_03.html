@@ -1,0 +1,22 @@
+<div>
+  <p>str.join or "".join tend to be faster than string concatenation with +</p>
+</div>
+<div>
+  <h2>Example</h2>
+  <p>Avoid:</p>
+  <pre>
+    words = ["this", "is", "a", "list",
+         "of", "strings"]
+
+    s = ""
+    for word in words:
+        s += word
+  </pre>
+  <p>Prefer:</p>
+  <pre>
+    words = ["this", "is", "a", "list",
+         "of", "strings"]
+
+    s = "".join(words)
+  </pre>
+</div>

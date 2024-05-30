@@ -1,0 +1,13 @@
+{
+  "title": "Classes should not have too many methods",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "tags": [
+    "greensight",
+    "disk",
+    "ram",
+    "cpu",
+    "network"
+  ],
+  "defaultSeverity": "Major"
+}

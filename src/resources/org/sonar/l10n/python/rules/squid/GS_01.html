@@ -1,0 +1,14 @@
+<div>
+	<p><code>SELECT *</code> forces the database system to retrieve all columns for all rows eligible, which can lead to massive amounts of data triggering hardware for no good reason. To avoid this, you must name which columns should be selected.</p>
+</div>
+<div>
+	<h2>Example</h2>
+	<p>Avoid:</p>
+	<pre>
+		SELECT * FROM customers;
+	</pre>
+	<p>Prefer:</p>
+	<pre>
+		SELECT name, phone FROM customers;
+	</pre>
+</div>

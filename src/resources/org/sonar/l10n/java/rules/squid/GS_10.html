@@ -1,0 +1,20 @@
+<div>
+	<p>Final class attributes that are meant to remain unchanged and to be shared between instances of the class should be declared as static. This will avoid duplicating the class attribute in memory.</p>
+</div>
+<div>
+	<h2>Example</h2>
+	<p>Avoid:</p>
+	<pre>
+		class MyClass
+		{
+			private final int max = 100;
+		}
+	</pre>
+	<p>Prefer:</p>
+	<pre>
+		class MyClass
+		{
+			private static final int max = 100;
+		}
+	</pre>
+</div>

@@ -1,0 +1,15 @@
+<div>
+	<p>Declaring variables has a memory and CPU cost. However it is not always necessary to use variables, for instance if variable are not used later on.</p>
+</div>
+<div>
+	<h2>Example</h2>
+	<p>Avoid:</p>
+	<pre>
+	    int result = myMethod();
+	    return result;
+	</pre>
+	<p>Prefer:</p>
+	<pre>
+	    return myMethod();
+	</pre>
+</div>

@@ -1,0 +1,12 @@
+{
+	"title": "Avoid generic exceptions",
+	"type": "CODE_SMELL",
+	"status": "ready",
+	"tags":
+	[
+		"greensight",
+		"cpu",
+		"ram"
+	],
+	"defaultSeverity": "Minor"
+}

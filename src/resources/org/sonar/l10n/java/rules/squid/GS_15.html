@@ -1,0 +1,23 @@
+<div>
+    <p>
+        Number of lines per file should not exceed a set threshold.
+    </p>
+</div>
+<div>
+    <h2>Example (For a set threshold of 10 lines)</h2>
+    <p>Avoid:</p>
+    <pre>
+        class TooManyLines {
+            private static final int A = 10;
+            private static final int B = 10;
+            private static final int C = 10;
+            private static final int D = 10;
+            private static final int E = 10;
+            private static final int F = 10;
+            private static final int G = 10;
+            private static final int H = 10;
+            private static final int I = 10;
+            private static final int J = 10; // Noncompliant {{THRESHOLD SURPASSED}}
+        }
+	</pre>
+</div>

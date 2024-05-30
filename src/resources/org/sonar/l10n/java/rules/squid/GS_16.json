@@ -1,0 +1,11 @@
+{
+	"title": "Switch statement should not have too many case clauses",
+	"type": "CODE_SMELL",
+	"status": "ready",
+	"tags":
+	[
+		"greensight",
+		"cpu"
+	],
+	"defaultSeverity": "Critical"
+}

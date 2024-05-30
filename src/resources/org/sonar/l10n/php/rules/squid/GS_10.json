@@ -1,0 +1,12 @@
+{
+	"title": "Avoid nested statements",
+	"type": "CODE_SMELL",
+	"status": "ready",
+	"tags":
+	[
+		"greensight",
+		"cpu",
+		"ram"
+	],
+	"defaultSeverity": "Major"
+}

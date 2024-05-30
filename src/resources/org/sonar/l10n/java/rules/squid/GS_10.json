@@ -1,0 +1,12 @@
+{
+	"title": "Make shared final class attributes static",
+	"type": "CODE_SMELL",
+	"status": "ready",
+	"tags":
+	[
+		"greensight",
+		"cpu",
+		"ram"
+	],
+	"defaultSeverity": "Minor"
+}

@@ -1,0 +1,21 @@
+<div>
+	<p>Nested statements sure are convenient. However they can lead to increased code complexity that other algorithms could easily reduce. Make sure that you keep depth to 3 max.</p>
+</div>
+<div>
+	<h2>Example</h2>
+	<p>Avoid:</p>
+	<pre>
+		if (condition1) // Compliant (depth = 1)
+		{
+			if (condition2) // Compliant (depth = 2)
+			{
+				for (int i = 0; i < 10; i++) // Compliant (depth = 3)
+				{
+					if (condition3) // Non-compliant (depth > 3)
+					{
+					}
+				}
+			}
+		}
+	</pre>
+</div>

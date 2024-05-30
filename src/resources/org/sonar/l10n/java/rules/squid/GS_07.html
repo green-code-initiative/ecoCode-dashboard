@@ -1,0 +1,27 @@
+<div>
+	<p>Do not increment nor decrement unused variables.</p>
+</div>
+<div>
+	<h2>Example</h2>
+	<p>Avoid:</p>
+	<pre>
+		public int pickNumber()
+		{
+			int i = 0;
+			int j = 0;
+			
+			i = i++;
+			return j++;
+		}
+	</pre>
+	<p>Prefer:</p>
+	<pre>
+		public int pickNumber()
+		{
+			int i = 0;
+			int j = 0;
+			
+			return ++j;
+		}
+	</pre>
+</div>

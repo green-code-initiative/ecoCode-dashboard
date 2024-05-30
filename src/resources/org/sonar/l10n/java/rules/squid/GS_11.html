@@ -1,0 +1,19 @@
+<div>
+    <p>Ternary operator, while pleasingly compact, can lead to a more difficult to read code. Better to avoid, in favor of the more verbose "if/else" structure.</p>
+</div>
+<div>
+    <h2>Example</h2>
+    <p>Avoid:</p>
+    <pre>
+		String output = i > 10 ? "Yes" : "No";
+	</pre>
+    <p>Opt for:</p>
+    <pre>
+		String output;
+		if(i > 10) {
+			output = "Yes";
+		} else {
+			output = "No";
+		}
+	</pre>
+</div>

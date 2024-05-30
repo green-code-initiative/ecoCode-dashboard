@@ -1,0 +1,11 @@
+{
+  "title": "Avoid using the ternary operator",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "tags":
+  [
+    "greensight",
+    "maintenance"
+  ],
+  "defaultSeverity": "Critical"
+}

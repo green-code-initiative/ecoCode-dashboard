@@ -1,0 +1,42 @@
+<div>
+    <p>Switch statements allow to identify cases and perform appropriate instructions. For the sake of maintainability and in order to avoid code duplication, instructions within the case should be kept to the bare minimum, for instance by moving instructions to external functions.</p>
+</div>
+<div>
+    <h2>Example</h2>
+    <p>Avoid:</p>
+    <pre>
+        switch (myVariable)
+        {
+            case 0:
+                int i = doThis();
+                int j = andDoThat();
+
+                if (checkThis(i, j))
+                {
+                    doThisAgain(i, j);
+                }
+
+                break;
+        }
+    </pre>
+    <p>Prefer:</p>
+    <pre>
+        switch (myVariable)
+        {
+            case 0:
+                handleCase0();
+                break;
+        }
+        
+        private void handleCase0()
+        {
+            int i = doThis();
+            int j = andDoThat();
+
+            if (checkThis(i, j))
+            {
+                doThisAgain(i, j);
+            }
+        }
+    </pre>
+</div>

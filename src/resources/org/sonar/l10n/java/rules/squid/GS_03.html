@@ -1,0 +1,24 @@
+<div>
+    <p>Empty methods will end up consuming CPU and RAM although they do nothing. Best is to get rid of empty functions, throw a relevant exception, or at least explain why function is empty in a comment.</p>
+</div>
+<div>
+    <h2>Example</h2>
+    <p>Avoid:</p>
+    <pre>
+        public void doSomething()
+        {
+        }
+    </pre>
+    <p>Prefer:</p>
+    <pre>
+        public void doSomething()
+        { 
+            throw new UnsupportedOperationException();
+        }
+
+        public void doSomething()
+        { 
+            // At least explain why nothing is happening yet
+        }
+    </pre>
+</div>

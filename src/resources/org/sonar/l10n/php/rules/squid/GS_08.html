@@ -1,0 +1,19 @@
+<div>
+	<p>Calling functions inside a for loop condition or iteration part can lead to the function being called as many times as there are loops.</p>
+</div>
+<div>
+	<h2>Example</h2>
+	<p>Avoid:</p>
+	<pre>
+		for (int i = 0; i < array.length(); i++)
+		{
+		}
+	</pre>
+	<p>Prefer:</p>
+	<pre>
+		int count = array.length();
+		for (int i = 0; i < count; i++)
+		{
+		}
+	</pre>
+</div>

@@ -1,0 +1,13 @@
+{
+  "title": "Classes should not have too many fields",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "tags":
+  [
+    "greensight",
+    "cpu",
+    "ram",
+    "maintenance"
+  ],
+  "defaultSeverity": "Major"
+}

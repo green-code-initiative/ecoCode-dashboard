@@ -1,0 +1,12 @@
+{
+	"title": "Avoid empty methods",
+	"type": "CODE_SMELL",
+	"status": "ready",
+	"tags":
+	[
+		"greensight",
+		"cpu",
+		"ram"
+	],
+	"defaultSeverity": "Minor"
+}

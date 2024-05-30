@@ -1,0 +1,12 @@
+{
+    "title": "Strings should not be concatenated using '+' in a loop",
+    "type": "CODE_SMELL",
+    "status": "ready",
+    "tags":
+    [
+      "greensight",
+      "cpu",
+      "ram"
+    ],
+    "defaultSeverity": "Minor"
+  }

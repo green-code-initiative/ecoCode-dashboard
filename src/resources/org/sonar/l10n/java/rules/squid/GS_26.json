@@ -1,0 +1,10 @@
+{
+    "title": "String offset-based methods should be preferred for finding substrings from offsets",
+    "type": "CODE_SMELL",
+    "status": "ready",
+    "tags": [
+        "greensight",
+        "cpu"
+    ],
+    "defaultSeverity": "Critical"
+}
