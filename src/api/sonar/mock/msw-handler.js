@@ -5,5 +5,5 @@ export const handlers = [
     const { api, route } = params
     const { default: body } = await import(`../issues/sonar.${api}.${route}.mock.js`)
     return HttpResponse.json(body)
-  }),
+  })
 ]

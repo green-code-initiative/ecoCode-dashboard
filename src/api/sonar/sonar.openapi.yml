@@ -15,7 +15,7 @@ paths:
   /issues/search:
     get:
       tags:
-      - Web API v2
+        - Web API v2
       parameters:
         - name: 'branch'
           description: Branch key. Not available in the community edition.
@@ -57,11 +57,11 @@ paths:
             items:
               type: string
               enum:
-              - OPEN
-              - CONFIRMED
-              - FALSE_POSITIVE
-              - ACCEPTED
-              - FIXED
+                - OPEN
+                - CONFIRMED
+                - FALSE_POSITIVE
+                - ACCEPTED
+                - FIXED
         - name: statuses
           in: query
           style: form
@@ -71,10 +71,10 @@ paths:
             items:
               type: string
               enum:
-              - OPEN
-              - CONFIRMED
-              - REOPENED
-              - RESOLVED
+                - OPEN
+                - CONFIRMED
+                - REOPENED
+                - RESOLVED
         - name: tags
           description: Comma-separated list of tags.
           example: ecocode
@@ -90,7 +90,6 @@ paths:
           description: OK
 
 components:
-
   parameters:
     p:
       name: p

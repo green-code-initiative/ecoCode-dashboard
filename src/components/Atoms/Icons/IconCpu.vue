@@ -2,7 +2,7 @@
 defineProps({
   size: {
     type: Number,
-    default: 48,
+    default: 48
   }
 })
 </script>

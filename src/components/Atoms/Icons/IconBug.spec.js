@@ -5,7 +5,7 @@ import IconBug from './IconBug.vue'
 
 describe('IconBug', () => {
   it('IconBug renders properly by default', () => {
-    const wrapper = mount(IconBug) 
+    const wrapper = mount(IconBug)
     const svg = wrapper.find('svg')
     expect(svg).toBeTruthy()
   })

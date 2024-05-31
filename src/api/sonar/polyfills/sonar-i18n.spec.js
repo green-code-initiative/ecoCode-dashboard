@@ -3,16 +3,11 @@
  * @see
  */
 
-import {
-  beforeEach,
-  describe,
-  expect,
-  test
-} from 'vitest'
+import { beforeEach, describe, expect, test } from 'vitest'
 
 import { t, tp, clearCache, addToCache } from './sonar-i18n'
 
-const MSG = 'my_message';
+const MSG = 'my_message'
 
 beforeEach(() => {
   clearCache()
@@ -59,9 +54,7 @@ describe('translateWithParameters', () => {
     addToCache({
       x_apples: '{0}: I have {2} apples in my {1} baskets - {3}'
     })
-    expect(tp('x_apples', 1, 2, 3, 4)).toBe(
-      '1: I have 3 apples in my 2 baskets - 4'
-    )
+    expect(tp('x_apples', 1, 2, 3, 4)).toBe('1: I have 3 apples in my 2 baskets - 4')
   })
 
   test('should not be affected by replacement pattern XSS vulnerability of String.replace', () => {
