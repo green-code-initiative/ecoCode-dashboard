@@ -3,6 +3,9 @@
 !.gitignore
 !.gitattributes
 !.github/
+!.eslintrc.cjs
+!.nvmrc
+!.prettierrc.json
 
 # Ignore generated files
 target
