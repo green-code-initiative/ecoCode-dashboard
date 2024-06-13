@@ -1,8 +1,8 @@
-import AbcdeScore from '../../components/AbcdeScore.vue'
+import AbcdeScore from './AbcdeScore.vue'
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 export default {
-  title: 'Mollecule/ABCDE Score',
+  title: 'Mollecules/ABCDE Score',
   component: AbcdeScore,
   tags: ['autodocs'],
   argTypes: {

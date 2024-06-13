@@ -1,6 +1,6 @@
 <script setup>
 import TheWelcome from './components/TheWelcome.vue'
-import AbcdeScore from './components/AbcdeScore.vue'
+import AbcdeScore from './components/Mollecules/AbcdeScore/AbcdeScore.vue'
 </script>
 
 <template>
@@ -9,7 +9,7 @@ import AbcdeScore from './components/AbcdeScore.vue'
 
     <div class="wrapper">
       Example de widget
-      <AbcdeScore value="C" severity="Medium" />
+      <AbcdeScore value="C" />
     </div>
   </header>
 
