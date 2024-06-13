@@ -15,10 +15,10 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@storybook/addon-a11y": "^8.1.8",
     "vue": "^3.4.21"
   },
   "devDependencies": {
-    "storybook-vscode-component": "^1.0.9",
     "@chromatic-com/storybook": "^1.5.0",
     "@ecocode/eslint-plugin": "^1.5.0",
     "@playwright/test": "^1.43.0",
@@ -40,6 +40,7 @@
     "jsdom": "^24.0.0",
     "prettier": "3.2.5",
     "storybook": "^8.1.5",
+    "storybook-vscode-component": "^1.0.9",
     "vite": "^5.2.8",
     "vite-plugin-vue-devtools": "^7.0.25",
     "vitest": "^1.4.0"
