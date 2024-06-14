@@ -6,6 +6,8 @@
 !.eslintrc.cjs
 !.nvmrc
 !.prettierrc.json
+!.storybook/
+!.vscode/
 
 # Ignore generated files
 target
