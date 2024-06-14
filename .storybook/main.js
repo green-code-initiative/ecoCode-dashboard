@@ -6,7 +6,6 @@ const config = {
     '@storybook/addon-essentials',
     '@chromatic-com/storybook',
     '@storybook/addon-interactions',
-    'addon-screen-reader',
     '@storybook/addon-a11y'
   ],
   framework: {
