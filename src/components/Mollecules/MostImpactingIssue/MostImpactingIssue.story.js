@@ -1,0 +1,42 @@
+import MostImpactingIssue from './MostImpactingIssue.vue'
+
+// More on how to set up stories at: https://storybook.js.org/docs/writing-stories
+export default {
+  title: 'Mollecules/Most Impacting Issue',
+  component: MostImpactingIssue,
+  tags: ['autodocs'],
+  argTypes: {
+    value: { control: { type: 'select' }, options: ['A', 'B', 'C', 'D', 'E'] }
+  }
+}
+
+// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
+export const A = {
+  args: {
+    value: 'A'
+  }
+}
+
+export const B = {
+  args: {
+    value: 'B'
+  }
+}
+
+export const C = {
+  args: {
+    value: 'C'
+  }
+}
+
+export const D = {
+  args: {
+    value: 'D'
+  }
+}
+
+export const E = {
+  args: {
+    value: 'E '
+  }
+}
