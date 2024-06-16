@@ -1,11 +1,15 @@
 import { describe, it, expect } from 'vitest'
 
 import { mount } from '@vue/test-utils'
-import HelloWorld from '../HelloWorld.vue'
+import ImpactTag from './ImpactTag.vue'
 
-describe('HelloWorld', () => {
-  it('renders properly', () => {
-    const wrapper = mount(HelloWorld, { props: { msg: 'Hello Vitest' } })
-    expect(wrapper.text()).toContain('Hello Vitest')
+describe('ImpactTag', () => {
+  it('Optimized renders properly', () => {
+    const wrapper = mount(ImpactTag, { props: { impact: 'Optimized' } })
+    expect(wrapper.text()).toContain('Optimized')
+  })
+  it('Info renders properly', () => {
+    const wrapper = mount(ImpactTag, { props: { impact: 'Info' } })
+    expect(wrapper.text()).toContain('Info')
   })
 })
