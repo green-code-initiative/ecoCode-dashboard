@@ -34,35 +34,14 @@ It allows:
 
 ![](./documentation/dashboard-widgets.png)
 
-## Recommended IDE Setup
 
-- [VSCode](https://code.visualstudio.com/) + The [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) Vue.js official extension (disable Vetur).
-- [nvm](https://github.com/nvm-sh/nvm) and the vsc-nvm VSCode extension to ensure using the right node.js version
-- [pnpm](https://pnpm.io/) as an alternative to npm which is more energy efficient by reducing consumed space and CPU
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+## Project Build and Start
 
 ```sh
-pnpm install
+pnpm ci
 ```
 
 Prefer `pnpm` for a faster and more secure installation with less network and disk space usage.
-
-### Compile and Hot-Reload Design System for Development
-
-```sh
-npm run storybook
-```
-
-### Compile and Hot-Reload the application for Development
-
-```sh
-npm run dev
-```
 
 ### Compile and Minify for Production
 
