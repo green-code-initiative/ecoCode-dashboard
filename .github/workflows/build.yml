@@ -40,3 +40,12 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Lint Vue App
+        run: pnpm run lint
+
+      - name: Test Vue App
+        run: pnpm run test:unit
+
+      - name: Build Storybook
+        run: pnpm run build storybook
