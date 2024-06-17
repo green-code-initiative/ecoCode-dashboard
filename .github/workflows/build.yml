@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18, 20]
+        node-version: [20]
     permissions:
       pull-requests: read # allows SonarCloud to decorate PRs with analysis results
     steps:
@@ -47,8 +47,8 @@ jobs:
       - name: Test Vue App
         run: pnpm coverage
 
-      - name: Official SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v2.2
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
