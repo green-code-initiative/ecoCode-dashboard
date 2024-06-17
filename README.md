@@ -1,5 +1,7 @@
 # EcoCode-Dashboard
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=green-code-initiative_ecoCode-dashboard&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=green-code-initiative_ecoCode-dashboard)
+
 This project is meant to provide Sustainable Code Dashboards to 
 - show potential impact on sustainability of unffollowed recommendations
 - help decisions regarding code enhancement priorisation 
