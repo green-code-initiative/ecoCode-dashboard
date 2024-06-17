@@ -45,7 +45,13 @@ jobs:
         run: pnpm run lint
 
       - name: Test Vue App
-        run: pnpm run test:unit
+        run: pnpm coverage
+
+      - name: Official SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v2.2
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
 
       - name: Build Storybook
         run: pnpm run build storybook

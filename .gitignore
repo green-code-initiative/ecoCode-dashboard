@@ -12,6 +12,7 @@
 # Ignore generated files
 target
 bin
+coverage
 
 # Logs
 logs
