@@ -4,6 +4,7 @@
     "ms-playwright.playwright",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "joshbolduc.story-explorer"
+    "joshbolduc.story-explorer",
+    "henrynguyen5-vsc.vsc-nvm"
   ]
 }
