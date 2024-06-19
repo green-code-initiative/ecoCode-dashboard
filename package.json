@@ -55,7 +55,7 @@
     "test-runner-with-snap-speed-exp": "^0.0.1",
     "transform": "link:@storybook/test-runner/playwright/transform",
     "vite": "^5.3.1",
-    "vite-plugin-vue-devtools": "^7.3.0",
+    "vite-plugin-vue-devtools": "^7.3.1",
     "vitest": "^1.6.0"
   }
 }
