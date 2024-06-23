@@ -38,9 +38,9 @@ paths:
                 - MEDIUM
                 - HIGH
         - name: p
-          $ref: ../sonarqube-v2.openapi.yml#/components/parameters/p
+          $ref: ../sonar.v2.openapi.yml#/components/parameters/p
         - name: ps
-          $ref: ../sonarqube-v2.openapi.yml#/components/parameters/ps
+          $ref: ../sonar.v2.openapi.yml#/components/parameters/ps
         - name: issueStatuses
           example: ACCEPTED,FIXED
           in: query
@@ -86,9 +86,7 @@ paths:
 components:
   securitySchemes:
     bearerAuth:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
+      $ref: ../sonar.v2.openapi.yml#/components/securitySchemes/bearerAuth
 
 security:
-  - bearerAuth: []  
+  - bearerAuth: []

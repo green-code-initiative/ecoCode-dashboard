@@ -1,6 +1,6 @@
 {
   "name": "ecocode-dashboard",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "type": "module",
   "engines": {
@@ -21,7 +21,9 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "vue": "^3.4.29"
+    "lodash": "^4.17.21",
+    "vue": "^3.4.29",
+    "vue3-toastify": "^0.2.1"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.5.0",
@@ -48,6 +50,7 @@
     "eslint-plugin-storybook": "^0.8.0",
     "eslint-plugin-vue": "^9.26.0",
     "jsdom": "^24.1.0",
+    "msw": "^2.3.1",
     "prettier": "3.2.5",
     "sonar-scanner": "^3.1.0",
     "storybook": "^8.1.10",
