@@ -41,7 +41,7 @@ It allows:
 ## Project Build and Start
 
 ```sh
-pnpm ci
+pnpm install
 ```
 
 Prefer `pnpm` for a faster and more secure installation with less network and disk space usage.
@@ -49,7 +49,7 @@ Prefer `pnpm` for a faster and more secure installation with less network and di
 ### Compile and Minify for Production
 
 ```sh
-npm run build
+pnpm build
 ```
 
 ### Run Unit Tests with [Vitest](https://vitest.dev/)
@@ -72,13 +72,13 @@ sudo apt-get install libgtk-3-0 # for firefox
 npm run build
 
 # Runs the end-to-end tests
-npm run test:e2e
+pnpm test:e2e
 # Runs the tests only on Chromium
-npm run test:e2e -- --project=chromium
+pnpm test:e2e --project=chromium
 # Runs the tests of a specific file
-npm run test:e2e -- tests/example.spec.ts
+pnpm test:e2e tests/example.spec.ts
 # Runs the tests in debug mode
-npm run test:e2e -- --debug
+pnpm test:e2e --debug
 ```
 
 ### Lint with [ESLint](https://eslint.org/)
