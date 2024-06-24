@@ -1,6 +1,7 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
+import ButtonItem from './components/Atoms/ButtonItem/ButtonItem.vue'
 import RuleIconTag from './components/Mollecules/RuleIconTag/RuleIconTag.vue'
 </script>
 
@@ -11,6 +12,7 @@ import RuleIconTag from './components/Mollecules/RuleIconTag/RuleIconTag.vue'
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
       <rule-icon-tag label="network" />
+      <button-item type="primary">mon bouton</button-item>
     </div>
   </header>
 
