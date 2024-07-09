@@ -18,7 +18,7 @@ const SONAR_TOKEN = import.meta.env.VITE_SONAR_TOKEN
 // eslint-disable-next-line @ecocode/no-import-all-from-library
 import { memoize, omitBy, isNil } from 'lodash'
 
-import { t } from './sonar-i18n'
+import { t } from './mock/sonar-i18n'
 import { addGlobalErrorMessage, addGlobalSuccessMessage } from './sonar-toast'
 
 // Adapted from https://nodejs.org/api/http.html#http_http_HTTP_STATUS

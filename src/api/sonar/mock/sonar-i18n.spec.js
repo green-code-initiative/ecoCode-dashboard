@@ -10,7 +10,7 @@ import {
   test
 } from 'vitest'
 
-import { t, tp, clearCache, addToCache } from './sonar-i18n'
+import { t, tp, clearCache, addToCache } from './mock/sonar-i18n'
 
 const MSG = 'my_message';
 

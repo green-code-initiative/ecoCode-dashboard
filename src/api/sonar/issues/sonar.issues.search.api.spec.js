@@ -2,8 +2,8 @@ import { setupServer } from 'msw/node'
 import { HttpResponse, http } from 'msw'
 import { afterAll, afterEach, beforeAll, describe, expect, test } from 'vitest'
 
-import mockIssueList from './sonar.issues.mock'
-import findIssues from './sonar.issues.api'
+import mockIssueList from './sonar.issues.search.mock'
+import findIssues from './sonar.issues.search.api'
 
 export const restHandlers = [
   http.get('/api/issues', () => HttpResponse.json(mockIssueList))

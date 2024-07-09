@@ -13,7 +13,8 @@
     "preview": "vite preview",
     "test:unit": "vitest",
     "coverage": "vitest run --coverage",
-    "sonar": "pnpm coverage && npx sonar-scanner -Dsonar.login=$SONAR",
+    "serve:sonar": "node src/api/sonar/mock/server.js",
+    "sonar": "pnpm coverage && pnpm exec sonar-scanner -Dsonar.login=$SONAR",
     "test:e2e": "playwright test",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
@@ -60,5 +61,11 @@
     "vite": "^5.3.1",
     "vite-plugin-vue-devtools": "^7.3.1",
     "vitest": "^1.6.0"
-  }
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
+  },
+  "packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a"
 }
