@@ -4,6 +4,15 @@ import TheWelcome from './components/TheWelcome.vue'
 import RuleIconTag from './components/Mollecules/RuleIconTag/RuleIconTag.vue'
 </script>
 
+<script>
+import { findIssues } from './api/sonar/issues/sonar.issues.search.api'
+async function fetchIssues() {
+  const issues = await findIssues('foo', 'javascript', 'main')
+  document.body.getElementsByTagName('output')[0].innerText = JSON.stringify(issues)
+}
+
+</script>
+
 <template>
   <header>
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
@@ -11,6 +20,10 @@ import RuleIconTag from './components/Mollecules/RuleIconTag/RuleIconTag.vue'
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
       <rule-icon-tag label="network" />
+    </div>
+    <div class="wrapper">
+      <input type="button" @click="fetchIssues" value="click"><br>
+      <output></output>
     </div>
   </header>
 

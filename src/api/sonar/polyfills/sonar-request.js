@@ -18,7 +18,7 @@ const SONAR_TOKEN = import.meta.env.VITE_SONAR_TOKEN
 // eslint-disable-next-line @ecocode/no-import-all-from-library
 import { memoize, omitBy, isNil } from 'lodash'
 
-import { t } from './mock/sonar-i18n'
+import { t } from './sonar-i18n'
 import { addGlobalErrorMessage, addGlobalSuccessMessage } from './sonar-toast'
 
 // Adapted from https://nodejs.org/api/http.html#http_http_HTTP_STATUS
@@ -135,7 +135,9 @@ const MIME_FORM_URLENCODED = 'application/x-www-form-urlencoded'
 const MIME_JSON = 'application/json'
 
 function encodeArrayURIComponent(name, value) {
-  return value.map((v) => `${name}=${encodeURIComponent(v)}`).join('&')
+  return value
+    .map((v) => `${name}=${encodeURIComponent(v)}`)
+    .join('&')
 }
 /**
  * @class Request
@@ -228,12 +230,15 @@ class Request {
       return result
     }
 
-    let urlEncodedData = ''
+    let urlEncodedData = []
     for (let [name, value] of Object.entries(omitNil(data))) {
-      urlEncodedData += Array.isArray(value)
-        ? encodeArrayURIComponent(name, value)
-        : `${name}=${encodeURIComponent(value)}`
+      urlEncodedData.push(
+        Array.isArray(value)
+          ? encodeArrayURIComponent(name, value)
+          : `${name}=${encodeURIComponent(value)}`
+      )
     }
+    urlEncodedData = urlEncodedData.join('&')
 
     if (this.#options.method === 'GET') {
       result.url += `?${urlEncodedData}`

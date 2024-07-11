@@ -5,6 +5,12 @@ info:
 servers:
   - url: https://sonarcloud.io/api
     description: Sonarcloud.io Web API
+  - url: https://{origin}/api
+    description: Sonarqube Web API
+    variables:
+      origin:
+        default: demo
+        description: Target sonarqube origin
 paths:
   /issues/search:
     get:
@@ -38,9 +44,9 @@ paths:
                 - MEDIUM
                 - HIGH
         - name: p
-          $ref: ../sonar.v2.openapi.yml#/components/parameters/p
+          $ref: ./#/components/parameters/p
         - name: ps
-          $ref: ../sonar.v2.openapi.yml#/components/parameters/ps
+          $ref: ./#/components/parameters/ps
         - name: issueStatuses
           example: ACCEPTED,FIXED
           in: query
@@ -84,9 +90,31 @@ paths:
           description: OK
 
 components:
+
+  parameters:
+    p:
+      name: p
+      description: 1-based page number
+      example: 1
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+    ps:
+      name: ps
+      description: Page size. Must be greater than 0 and less or equal than 500
+      example: 50
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 500
+
   securitySchemes:
     bearerAuth:
-      $ref: ../sonar.v2.openapi.yml#/components/securitySchemes/bearerAuth
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
 
 security:
   - bearerAuth: []

@@ -21,8 +21,6 @@ vi.mock('./sonar-toast', async () => {
   }
 })
 
-const url = '/my-url'
-
 function mockResponse(headers = {}, status = Ok, value) {
   const body = value && value instanceof Object ? JSON.stringify(value) : value
   const response = new Response(body, { headers, status })
@@ -44,16 +42,16 @@ describe('sonar-request', () => {
     test('should get text without parameters', async () => {
       const response = mockResponse({}, Ok, '')
       window.fetch = vi.fn().mockResolvedValue(response)
-      await SonarRequest.getText(url)
+      await SonarRequest.getText('/my-url')
 
-      expect(window.fetch).toHaveBeenCalledWith(url, expect.objectContaining({ method: 'GET' }))
+      expect(window.fetch).toHaveBeenCalledWith('/my-url', expect.objectContaining({ method: 'GET' }))
       expect(response.text).toHaveBeenCalled()
     })
 
     test('should get text with parameters', async () => {
-      await SonarRequest.getText(url, { data: 'test' })
+      await SonarRequest.getText('/my-url', { data: 'test' })
       expect(window.fetch).toHaveBeenCalledWith(
-        url + '?data=test',
+        '/my-url?data=test',
         expect.objectContaining({ method: 'GET' })
       )
     })
@@ -87,16 +85,16 @@ describe('sonar-request', () => {
     test('should post without parameters and get json', async () => {
       const response = mockResponse()
       window.fetch = vi.fn().mockResolvedValue(response)
-      await SonarRequest.postJSON(url)
+      await SonarRequest.postJSON('/my-url')
 
-      expect(window.fetch).toHaveBeenCalledWith(url, expect.objectContaining({ method: 'POST' }))
+      expect(window.fetch).toHaveBeenCalledWith('/my-url', expect.objectContaining({ method: 'POST' }))
       expect(response.json).toHaveBeenCalled()
     })
 
     test('should post with a body and get json', async () => {
-      await SonarRequest.postJSON(url, { data: 'test' })
+      await SonarRequest.postJSON('/my-url', { data: 'test' })
       expect(window.fetch).toHaveBeenCalledWith(
-        url,
+        '/my-url',
         expect.objectContaining({ body: 'data=test', method: 'POST' })
       )
     })
@@ -106,16 +104,16 @@ describe('sonar-request', () => {
     test('should post without parameters and get json', async () => {
       const response = mockResponse();
       window.fetch = vi.fn().mockResolvedValue(response);
-      await SonarRequest.postJSONBody(url);
+      await SonarRequest.postJSONBody('/my-url');
   
-      expect(window.fetch).toHaveBeenCalledWith(url, expect.objectContaining({ method: 'POST' }));
+      expect(window.fetch).toHaveBeenCalledWith('/my-url', expect.objectContaining({ method: 'POST' }));
       expect(response.json).toHaveBeenCalled();
     });
   
     test('should post with a body and get json', async () => {
-      await SonarRequest.postJSONBody(url, { nested: { data: 'test', withArray: [1, 2] } });
+      await SonarRequest.postJSONBody('/my-url', { nested: { data: 'test', withArray: [1, 2] } });
       expect(window.fetch).toHaveBeenCalledWith(
-        url,
+        '/my-url',
         expect.objectContaining({
           headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
           body: '{"nested":{"data":"test","withArray":[1,2]}}',
@@ -129,10 +127,10 @@ describe('sonar-request', () => {
     test('should post without parameters and return nothing', async () => {
       const response = mockResponse();
       window.fetch = vi.fn().mockResolvedValue(response);
-      await SonarRequest.post(url, { data: 'test' });
+      await SonarRequest.post('/my-url', { data: 'test' });
   
       expect(window.fetch).toHaveBeenCalledWith(
-        url,
+        '/my-url',
         expect.objectContaining({ body: 'data=test', method: 'POST' }),
       );
       expect(response.json).not.toHaveBeenCalled();
@@ -142,10 +140,10 @@ describe('sonar-request', () => {
     test('should handle array values', async () => {
       const response = mockResponse();
       window.fetch = vi.fn().mockResolvedValue(response);
-      await SonarRequest.post(url, { dataArray: ['1', '2'] });
+      await SonarRequest.post('/my-url', { dataArray: ['1', '2'] });
   
       expect(window.fetch).toHaveBeenCalledWith(
-        url,
+        '/my-url',
         expect.objectContaining({ body: 'dataArray=1&dataArray=2', method: 'POST' }),
       );
     });

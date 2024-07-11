@@ -11,8 +11,7 @@ Unfortunately Sonar:
 ## Ecocode Sonar Web API Support
 
 The supported Sonar Web API are exposed in these Open API files:
-- [Sonarqube Web API v1](./sonar.v1.openapi.yml)
-- [Sonarqube/Sonarcloud Web API v2](./sonar.v2.openapi.yml)
+- [Sonarqube/Sonarcloud Web API v2](./sonar.openapi.yml)
 
 ## JavaScript Helper APIs exposed by SonarQube
 

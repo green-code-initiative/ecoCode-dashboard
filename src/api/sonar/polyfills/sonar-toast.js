@@ -17,42 +17,36 @@ import { toast } from 'vue3-toastify'
  * @typedef {Object} ToastOptions
  * @property {string} role ARIA Role ('alert', 'status', 'log')
  * @property {number} delay Let you delay the toast appearance. Pass a value in ms
- * @property {number} delay Let you delay the toast appearance. Pass a value in ms
- * @property {number} delay Let you delay the toast appearance. Pass a value in ms
+ * @property {number|boolean} autoClose Delay in ms to close the toast. If set to false, the notification needs to be closed manually
  */
 
-const mapper = {
-  style: 'toastStyle'
-}
+const RESTRICTED_OPTIONS = ['role', 'delay', 'autoClose']
 
-function transform(overrides) {
-  Object.entries(mapper).forEach(([key, value]) => {
+function filter(overrides) {
+  const options = {}
+  for (const key of RESTRICTED_OPTIONS) {
     if (key in overrides) {
-      overrides[value] = overrides[key]
+      options[key] = overrides[key]
     }
-  })
+  }
+  return options
 }
 
 /**
  * @param {string} message
- * @param {ToastOptions} overrides
- * @warning ReactToastify and Vue3Toast do not support the same options
+ * @param {ToastOptions} [options]
  * @returns
  */
-function addGlobalErrorMessage(message, overrides) {
-  return toast.error(message, transform(overrides))
+export function addGlobalErrorMessage(message, options) {
+  return options ? toast.error(message, filter(options)) : toast.error(message)
 }
 
 /**
  * @param {string} message
- * @param {ToastOptions} overrides
- * @warning ReactToastify and Vue3Toast do not support the same options
+ * @param {ToastOptions} [options]
  * @returns
  */
-function addGlobalSuccessMessage(message, overrides) {
-  return toast.success(message, transform(overrides))
+export function addGlobalSuccessMessage(message, options) {
+  return options ? toast.success(message, filter(options)) : toast.success(message)
 }
 
-const SonarToast = { addGlobalErrorMessage, addGlobalSuccessMessage }
-
-export default SonarToast

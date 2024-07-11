@@ -1,6 +1,7 @@
-import { getJSON } from '../sonar-request'
+//import sonarRequestAPI from '@sonar/sonar-request'
+import sonarRequestAPI from '../polyfills/sonar-request'
 
-const API = 'issues'
+const API = 'api/issues'
 const ECOCODE_ISSUE_TAG = 'ecocode'
 const statuses = 'OPEN,CONFIRMED,REOPENED,RESOLVED'
 
@@ -24,7 +25,7 @@ export async function findIssues(componentKeys, language, branch) {
     statuses,
     tags
   }
-  const page = await getJSON(routeUrl, searchParams)
+  const page = await sonarRequestAPI.getJSON(routeUrl, searchParams)
   const { issues = [] } = page
   return issues
 }
