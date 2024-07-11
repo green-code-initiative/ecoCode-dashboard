@@ -8,6 +8,7 @@
     "pnpm": ">=9"
   },
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
