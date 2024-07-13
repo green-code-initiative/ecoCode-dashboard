@@ -3,14 +3,20 @@
 !.gitignore
 !.gitattributes
 !.github/
-!.eslintrc.cjs
-!.nvmrc
-!.prettierrc.json
-!.storybook
+!.*rc
+!.*rc.*
+!.storybook/
 
 # Ignore generated files
+node_modules
 target
 bin
+dist
+dist-ssr
+coverage
+test-results/
+playwright-report/
+storybook-static/
 
 # Logs
 logs
@@ -20,30 +26,18 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+*storybook.log
+*.tsbuildinfo
 
-node_modules
+# Local files
 .DS_Store
-dist
-dist-ssr
-coverage
 *.local
 
-/cypress/videos/
-/cypress/screenshots/
-
-# Editor directories and files
-.vscode/*
+# Editor directories and files to keep or ignore
+!.editorconfig
 !.vscode/extensions.json
-.idea
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-
-*.tsbuildinfo
-
-test-results/
-playwright-report/
-
-*storybook.log
