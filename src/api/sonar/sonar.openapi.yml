@@ -1,0 +1,120 @@
+openapi: '3.0.2'
+info:
+  title: Sonarqube Issues Web API
+  version: '2.0'
+servers:
+  - url: https://sonarcloud.io/api
+    description: Sonarcloud.io Web API
+  - url: https://{origin}/api
+    description: Sonarqube Web API
+    variables:
+      origin:
+        default: demo
+        description: Target sonarqube origin
+paths:
+  /issues/search:
+    get:
+      tags:
+      - Web API v2
+      parameters:
+        - name: 'branch'
+          description: Branch key. Not available in the community edition.
+          example: feature/my_branch
+          in: query
+          schema:
+            type: string
+        - name: 'components'
+          description: Comma-separated list of component keys. Retrieve issues associated to a specific list of components (and all its descendants). A component can be a portfolio, project, module, directory or file.
+          example: my_project
+          in: query
+          schema:
+            type: string
+        - name: impactSeverities
+          description: Comma-separated list of Software Quality Severities
+          example: HIGH,MEDIUM
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - LOW
+                - MEDIUM
+                - HIGH
+        - name: p
+          $ref: ./#/components/parameters/p
+        - name: ps
+          $ref: ./#/components/parameters/ps
+        - name: issueStatuses
+          example: ACCEPTED,FIXED
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+              - OPEN
+              - CONFIRMED
+              - FALSE_POSITIVE
+              - ACCEPTED
+              - FIXED
+        - name: statuses
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+              - OPEN
+              - CONFIRMED
+              - REOPENED
+              - RESOLVED
+        - name: tags
+          description: Comma-separated list of tags.
+          example: ecocode
+          in: query
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: OK
+
+components:
+
+  parameters:
+    p:
+      name: p
+      description: 1-based page number
+      example: 1
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+    ps:
+      name: ps
+      description: Page size. Must be greater than 0 and less or equal than 500
+      example: 50
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 500
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+security:
+  - bearerAuth: []

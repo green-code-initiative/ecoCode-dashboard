@@ -6,13 +6,16 @@ import VueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    VueDevTools(),
-  ],
+  plugins: [vue(), VueDevTools()],
+  build: {
+    target: 'esnext'
+  },
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
     }
+  },
+  esbuild: {
+    legalComents: 'external'
   }
 })

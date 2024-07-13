@@ -1,6 +1,6 @@
 {
   "name": "ecocode-dashboard",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "type": "module",
   "engines": {
@@ -14,7 +14,8 @@
     "preview": "vite preview",
     "test:unit": "vitest",
     "coverage": "vitest run --coverage",
-    "sonar": "pnpm coverage && npx sonar-scanner -Dsonar.login=$SONAR",
+    "serve:sonar": "node src/api/sonar/mock/server.js",
+    "sonar": "pnpm coverage && pnpm exec sonar-scanner -Dsonar.login=$SONAR",
     "test:e2e": "playwright test",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
@@ -22,7 +23,9 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "vue": "^3.4.29"
+    "lodash": "^4.17.21",
+    "vue": "^3.4.29",
+    "vue3-toastify": "^0.2.1"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.5.0",
@@ -32,6 +35,7 @@
     "@playwright/test": "^1.44.1",
     "@rushstack/eslint-patch": "^1.10.3",
     "@storybook/addon-a11y": "^8.1.10",
+    "@storybook/addon-coverage": "^1.0.4",
     "@storybook/addon-essentials": "^8.1.10",
     "@storybook/addon-interactions": "^8.1.10",
     "@storybook/addon-links": "^8.1.10",
@@ -49,14 +53,21 @@
     "eslint-plugin-storybook": "^0.8.0",
     "eslint-plugin-vue": "^9.26.0",
     "jsdom": "^24.1.0",
+    "msw": "^2.3.1",
     "prettier": "3.2.5",
     "sonar-scanner": "^3.1.0",
-    "storybook": "^8.1.10",
+    "storybook": "^8.2.2",
     "storybook-vscode-component": "^1.0.9",
     "test-runner-with-snap-speed-exp": "^0.0.1",
     "transform": "link:@storybook/test-runner/playwright/transform",
     "vite": "^5.3.1",
-    "vite-plugin-vue-devtools": "^7.3.0",
+    "vite-plugin-vue-devtools": "^7.3.1",
     "vitest": "^1.6.0"
-  }
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
+  },
+  "packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903"
 }
