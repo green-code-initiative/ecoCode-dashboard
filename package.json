@@ -55,9 +55,19 @@
     "jsdom": "^24.1.0",
     "msw": "^2.3.1",
     "prettier": "3.2.5",
-    "storybook": "^8.1.5",
-    "vite": "^5.2.8",
-    "vite-plugin-vue-devtools": "^7.0.25",
-    "vitest": "^1.4.0"
-  }
+    "sonar-scanner": "^3.1.0",
+    "storybook": "^8.2.2",
+    "storybook-vscode-component": "^1.0.9",
+    "test-runner-with-snap-speed-exp": "^0.0.1",
+    "transform": "link:@storybook/test-runner/playwright/transform",
+    "vite": "^5.3.1",
+    "vite-plugin-vue-devtools": "^7.3.1",
+    "vitest": "^1.6.0"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
+  },
+  "packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903"
 }
