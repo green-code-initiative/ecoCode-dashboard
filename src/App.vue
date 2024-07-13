@@ -1,5 +1,5 @@
 <script setup>
-import RuleIconTag from './components/Mollecules/RuleIconTag/RuleIconTag.vue'
+import AbcdeScore from './components/Mollecules/AbcdeScore/AbcdeScore.vue'
 </script>
 
 <script>
@@ -8,7 +8,6 @@ async function fetchIssues() {
   const issues = await findIssues('foo', 'javascript', 'main')
   document.body.getElementsByTagName('output')[0].innerText = JSON.stringify(issues)
 }
-
 </script>
 
 <template>
@@ -16,7 +15,7 @@ async function fetchIssues() {
 
     <div class="wrapper">
       <p>You did it!</p>
-      <rule-icon-tag label="network" />
+      <AbcdeScore value="C" />
     </div>
     <div class="wrapper">
       <input type="button" @click="fetchIssues" value="click"><br>
