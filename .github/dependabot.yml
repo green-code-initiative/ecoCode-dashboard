@@ -10,7 +10,7 @@ updates:
     directory: "/" 
     schedule:
       interval: "weekly"
-    assignee:
+    assignees:
       - AMorgaut
     groups:
       production-dependencies:
