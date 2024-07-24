@@ -6,7 +6,19 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: "npm" 
+    directory: "/" 
     schedule:
       interval: "weekly"
+    assignees:
+      - AMorgaut
+    groups:
+      production-dependencies:
+        dependency-type: "production"
+      development-dependencies:
+        dependency-type: "development"
+      minor-and-patch:
+        applies-to: security-updates
+        update-types:
+        - "patch"
+        - "minor"
