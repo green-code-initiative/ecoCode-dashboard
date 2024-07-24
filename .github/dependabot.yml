@@ -1,0 +1,12 @@
+# Please see the documentation for all configuration options:
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+# TODO ( issue #3 - PR #12 ) Integration of Maven pom.xml file analyses
+# https://github.com/green-code-initiative/ecoCode-dashboard/blob/dd240b00e547b009fde8aa34bfedb1bcd4a9c747/sonar-plugin/pom.xml
+
+version: 2
+updates:
+  - package-ecosystem: "npm" # See documentation for possible values
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "weekly"
