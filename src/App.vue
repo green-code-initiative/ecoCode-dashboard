@@ -12,17 +12,19 @@ async function fetchIssues() {
 
 <template>
   <header>
-
     <div class="wrapper">
       <p>You did it!</p>
       <AbcdeScore value="C" />
     </div>
     <div class="wrapper">
-      <input type="button" @click="fetchIssues" value="click"><br>
-      <output></output>
+      <input
+        type="button"
+        value="click"
+        @click="fetchIssues"
+      ><br>
+      <output />
     </div>
   </header>
-
 </template>
 
 <style scoped>
