@@ -46,7 +46,7 @@ Most of the implementation is in this helper: [sonar-web helpers/request.ts](htt
 #### `request(url: string)`
 
 Create a Request object with this API:
-```js
+```ts
 class Request {
     setMethod(method: string) {}
     setData(data?: RequestData, isJSON = false) {}
