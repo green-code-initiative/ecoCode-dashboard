@@ -7,8 +7,12 @@ export default mergeConfig(
   defineConfig({
     test: {
       environment: 'jsdom',
-      exclude: [...configDefaults.exclude, 'e2e/**'],
-      root: fileURLToPath(new URL('./', import.meta.url))
+      exclude: [...configDefaults.exclude, 'e2e/**', '**/*.stories.js'],
+      root: fileURLToPath(new URL('./', import.meta.url)),
+      coverage: {
+        reporter: ['text', 'lcov'],
+        exclude: ['**/*.stories.js','.*rc*','*.config.js'],
+      }
     }
   })
 )

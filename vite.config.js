@@ -5,21 +5,22 @@ import { fileURLToPath } from 'url'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    VueDevTools(),
-  ],
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
-  },
+  plugins: [vue(), VueDevTools()],
   build: {
+    target: 'esnext',
     rollupOptions: {
       output: {
         entryFileNames: `assets/view.js`,
         assetFileNames: `assets/view.css`
       }
     }
+  },
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    }
+  },
+  esbuild: {
+    legalComents: 'external'
   }
 })
