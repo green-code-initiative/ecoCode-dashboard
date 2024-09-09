@@ -12,17 +12,13 @@
     &nbsp;&nbsp;<b style="margin-left: '3px'">{{ criticity.text }}</b>
     &nbsp;impact issues
     <strong :class="{ 'no-issues': !isIssues }">{{ criticity.issues.value }}</strong>
-    <img
-      v-if="isIssues"
-      :src="IconArrowRight"
-      alt=""
-    >
+    <img v-if="isIssues" :src="IconArrowRight" alt="" />
   </li>
 </template>
 
 <script setup>
 import { computed } from 'vue'
-import IconArrowRight from '../../assets/icons/icon-arrow-right.svg'
+import IconArrowRight from '../../../public/icons/icon-arrow-right.svg'
 
 const props = defineProps({
   criticity: { type: Object, required: true },

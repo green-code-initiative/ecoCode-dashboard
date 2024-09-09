@@ -1,10 +1,6 @@
 <template>
   <div class="issues-component">
-    <BlocsComponent
-      :project-key="projectKey"
-      :lang="lang"
-      :branch-like="branchLike"
-    />
+    <BlocsComponent :project-key="projectKey" :lang="lang" :branch-like="branchLike" />
     <ResumeComponent :lang="lang" />
   </div>
 </template>

@@ -12,8 +12,8 @@ export default class SideBarService {
     if (components) {
       let totalNumberLinesOfComponents = 0
 
-      for (let index = 0; index < components.length; index += 1) {
-        const component = components[index]
+      for (const element of components) {
+        const component = element
         const codeLinesComponent = component.numberOfLines
 
         totalNumberLinesOfComponents += parseInt(codeLinesComponent, 10)

@@ -22,11 +22,7 @@ const state = reactive({
       :lang="state.lang"
       :branch-like="state.branchLike"
     />
-    <TagCards
-      :project-key="state.projectKey"
-      :lang="state.lang"
-      :branch-like="state.branchLike"
-    />
+    <TagCards :project-key="state.projectKey" :lang="state.lang" :branch-like="state.branchLike" />
   </main>
 </template>
 
@@ -51,11 +47,9 @@ header {
 </style>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
-
 .greensight-page {
   min-height: 100vh;
-  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: 300;
   padding: 35px;
 }

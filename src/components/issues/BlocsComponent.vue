@@ -2,15 +2,10 @@
   <div class="blocs-component">
     <div class="head">
       <div class="title-group">
-        <div class="title">
-          Issues <strong>by components</strong>
-        </div>
+        <div class="title">Issues <strong>by components</strong></div>
       </div>
       <ul class="legends">
-        <li
-          v-for="filter in state.blocFilter"
-          :key="filter.key"
-        >
+        <li v-for="filter in state.blocFilter" :key="filter.key">
           <div
             :class="[
               {
@@ -253,7 +248,7 @@ onMounted(async () => {
 
 .legend-not-covered {
   background-color: #bbbbbb;
-  background-image: url('Icons/icon-not-covered.svg');
+  background-image: url('icons/icon-not-covered.svg');
   background-repeat: no-repeat;
   background-size: 12px;
   background-position: center;
@@ -261,7 +256,7 @@ onMounted(async () => {
 
 .legend-optimized {
   background-color: #85bb2f;
-  background-image: url('Icons/icon-check-solid.svg');
+  background-image: url('icons/icon-check-solid.svg');
   background-repeat: no-repeat;
   background-size: 11px;
   background-position: center;

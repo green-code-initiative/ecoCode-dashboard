@@ -17,8 +17,8 @@ export default class BlocService {
   async tree(blocs, node, totalLines) {
     // console.log("children", node);
     if (node != null) {
-      for (let index = 0; index < node.children.length; index += 1) {
-        const child = node.children[index]
+      for (const element of node.children) {
+        const child = element
 
         if (child.component.qualifier === 'DIR' && child.children !== undefined) {
           let childrenMinorSeverities = 0

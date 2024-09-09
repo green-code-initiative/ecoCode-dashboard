@@ -12,11 +12,7 @@
           data-iscapture="true"
         >
           i
-          <q-tooltip
-            class="tooltip tooltip-bg-dark"
-            anchor="top middle"
-            self="bottom middle"
-          >
+          <q-tooltip class="tooltip tooltip-bg-dark" anchor="top middle" self="bottom middle">
             <div class="tooltip-small">
               Affected rules correspond to the number of rules associated with errors identified by
               SonarQube, among the Greensight rules that impact this component
@@ -58,10 +54,7 @@
       </div>
 
       <div class="body-right">
-        <RulesCriticities
-          :tag-issues="props.tagIssues"
-          :project-key="props.projectKey"
-        />
+        <RulesCriticities :tag-issues="props.tagIssues" :project-key="props.projectKey" />
       </div>
     </div>
   </div>

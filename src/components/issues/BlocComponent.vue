@@ -18,41 +18,22 @@
         rel="noopener noreferrer"
         title="Open Issues"
       >
-        <img
-          :src="IconCopyLink"
-          alt="link"
-        >
+        <img :src="IconCopyLink" alt="link" />
       </a>
     </strong>
 
     <div v-if="bloc.blocType === 'not-covered'">
-      <img
-        height="13"
-        width="13"
-        :src="IconNotCovered"
-        alt="not covered"
-      >
+      <img height="13" width="13" :src="IconNotCovered" alt="not covered" />
     </div>
 
     <strong v-if="bloc.blocType === 'optimized'">
-      <img
-        height="13"
-        width="13"
-        :src="IconCheck"
-        alt="check"
-      >
+      <img height="13" width="13" :src="IconCheck" alt="check" />
     </strong>
 
-    <q-tooltip
-      class="tooltip tooltip-bg-dark"
-      anchor="top middle"
-      self="bottom middle"
-    >
+    <q-tooltip class="tooltip tooltip-bg-dark" anchor="top middle" self="bottom middle">
       <div class="tooltip-content">
         <div><strong>Component: </strong> {{ bloc.key }}</div>
-        <div v-if="directErrors === 0 && indirectErrors === 0">
-          No issues identified
-        </div>
+        <div v-if="directErrors === 0 && indirectErrors === 0">No issues identified</div>
         <div v-if="directErrors > 0 || indirectErrors > 0">
           <strong>Issues:</strong>
           {{ ` ${directErrors} ${directText} | ${indirectErrors} ${indirectText}` }}
@@ -64,9 +45,9 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import IconNotCovered from '../../assets/icons/icon-not-covered.svg'
-import IconCheck from '../../assets/icons/icon-check-solid.svg'
-import IconCopyLink from '../../assets/icons/icon-copy-link.svg'
+import IconNotCovered from '../../../public/icons/icon-not-covered.svg'
+import IconCheck from '../../../public/icons/icon-check-solid.svg'
+import IconCopyLink from '../../../public/icons/icon-copy-link.svg'
 import Bloc from '../../shared/models/Bloc'
 
 const windowRef = ref(window)

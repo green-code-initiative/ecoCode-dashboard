@@ -212,6 +212,11 @@
                                     <targetPath>
                                         ${project.build.outputDirectory}/static</targetPath>
                                 </resource>
+                                <resource>
+                                    <directory>../dist/icons</directory>
+                                    <targetPath>
+                                        ${project.build.outputDirectory}/static/icons</targetPath>
+                                </resource>
                             </resources>
                         </configuration>
                     </execution>

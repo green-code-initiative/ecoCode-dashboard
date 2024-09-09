@@ -9,6 +9,7 @@ export async function initCache() {
     }
   }
 }
+
 export async function addDataToStore(key, data) {
   // console.log("la fonction addDataToStore est appelée, data =", data);
   if (data && key) {
@@ -30,7 +31,6 @@ export async function getStoredData(key) {
     if (!response) {
       return null
     }
-
     return response.clone().json()
   }
   return null
@@ -38,10 +38,7 @@ export async function getStoredData(key) {
 
 export async function clearStore() {
   const cacheStore = await store.keys()
-
-  for (let index = 0; index < cacheStore.length; index += 1) {
-    const element = cacheStore[index]
-
+  for (let element of cacheStore) {
     store.delete(element)
   }
 }
