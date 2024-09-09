@@ -1,37 +1,44 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
-    <name>Ecocode-sonarqube-dashboard</name>
+    <name>ecoCode SonarQube dashboard plugin</name>
+    <description>Provides a dashboard for ecoCode</description>
     <groupId>io.ecocode</groupId>
     <artifactId>ecocode-sonarqube-dashboard</artifactId>
     <packaging>sonar-plugin</packaging>
     <version>0.0.1</version>
-    <description>Provides Dashboard for ecocode plugin</description>
     <inceptionYear>2024</inceptionYear>
     <url>https://github.com/green-code-initiative/ecoCode-dashboard.git</url>
     <organization>
         <name>green-code-initiative</name>
         <url>https://github.com/green-code-initiative</url>
     </organization>
+    <licenses>
+        <license>
+            <name>GPL-3.0-only</name>
+            <url>https://www.gnu.org/licenses/gpl-3.0-standalone.html</url>
+            <comments>GNU General Public License v3.0 only</comments>
+        </license>
+    </licenses>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <gson.version>2.9.1</gson.version>
-        <jdk.min.version>11</jdk.min.version>
+        <sonar.apiVersion>9.8.0.203</sonar.apiVersion>
+        <jdk.min.version>17</jdk.min.version>
         <sonar.sources>src/main/java,src/main/js</sonar.sources>
+        <gson.version>2.9.1</gson.version>
         <sonarjava.version>7.2.0.26923</sonarjava.version>
         <sonarphp.version>3.23.1.8766</sonarphp.version>
         <sonarpython.version>3.4.1.8066</sonarpython.version>
-        <sonar.apiVersion>8.9.9.56886</sonar.apiVersion>
     </properties>
 
     <dependencies>
         <!-- Common -->
         <dependency>
-            <groupId>org.sonarsource.sonarqube</groupId>
+            <groupId>org.sonarsource.api.plugin</groupId>
             <artifactId>sonar-plugin-api</artifactId>
             <version>${sonar.apiVersion}</version>
             <scope>provided</scope>
@@ -50,7 +57,8 @@
             <scope>provided</scope>
         </dependency>-->
         <!-- Needed by sonar php plugin, shouldn't be needed, need digging -->
-        <!-- Notice there is no <scope>provided</scope>, this because otherwise scans fail
+        <!-- Notice there is no <scope>provided</scope>, this because otherwise
+        scans fail
          on Sonarqube -->
         <dependency>
             <groupId>org.sonarsource.sslr</groupId>
@@ -58,7 +66,8 @@
             <version>1.24.0.633</version>
         </dependency>
 
-        <!-- There is no <scope>provided</scope> because scan fail otherwise with class not found exception -->
+        <!-- There is no <scope>provided</scope> because scan fail otherwise
+        with class not found exception -->
         <!--<dependency>
             <groupId>org.sonarsource.python</groupId>
             <artifactId>sonar-python-plugin</artifactId>
@@ -77,7 +86,8 @@
             <version>0.10.2</version>
         </dependency>
 
-        <!-- Tests deps (there is no php testkit because such package doesn't exist for some reason ) -->
+        <!-- Tests deps (there is no php testkit because such package doesn't
+        exist for some reason ) -->
         <dependency>
             <groupId>org.sonarsource.java</groupId>
             <artifactId>java-checks-testkit</artifactId>
@@ -108,13 +118,17 @@
             <plugin>
                 <groupId>org.sonarsource.sonar-packaging-maven-plugin</groupId>
                 <artifactId>sonar-packaging-maven-plugin</artifactId>
-                <version>1.21.0.505</version>
+                <version>1.23.0.740</version>
                 <extensions>true</extensions>
                 <configuration>
                     <pluginKey>ecocode</pluginKey>
                     <pluginClass>io.ecocode.plugin.EcocodeDashboardPlugin</pluginClass>
-                    <sonarQubeMinVersion>${sonar.apiVersion}</sonarQubeMinVersion>
-                    <!-- <requirePlugins>java:${sonarjava.version}</requirePlugins>
+                    <!-- Optional, only if you are sure to support older
+                    versions of the plugin API than the one you are compiling
+                    against -->
+                    <!-- <pluginApiMinVersion>9.5</pluginApiMinVersion> -->
+                    <!--
+                    <requirePlugins>java:${sonarjava.version}</requirePlugins>
                     <requirePlugins>php:${sonarphp.version}</requirePlugins>
                     <requirePlugins>python:${sonarpython.version}</requirePlugins> -->
                 </configuration>
@@ -129,48 +143,38 @@
                 </configuration>
             </plugin>
 
-            <!-- This plugin execute in order npm install and npm run build -->
+            <!-- This plugin execute in order pnpm install and pnpm build -->
             <!-- This allow maven to create a production build of the front app -->
             <!-- Maven will look for files in target/classes/static folder -->
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>3.1.0</version>
-
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <version>1.15.0</version>
                 <executions>
                     <execution>
-
-                        <!-- this line is to make linting happy, it has no effect on the build -->
-                        <?m2e execute onConfiguration,onIncremental?>
-
-                        <id>npm install</id>
-                        <phase>initialize</phase>
+                        <id>install node and npm</id>
                         <goals>
-                            <goal>exec</goal>
+                            <goal>install-node-and-pnpm</goal>
                         </goals>
                         <configuration>
-                            <executable>npm</executable>
-                            <arguments>
-                                <argument>install</argument>
-                            </arguments>
+                            <nodeVersion>v20.17.0</nodeVersion>
+                            <pnpmVersion>v9.5.0</pnpmVersion>
                         </configuration>
                     </execution>
                     <execution>
-
-                        <!-- this line is to make linting happy, it has no effect on the build -->
-                        <?m2e execute onConfiguration,onIncremental?>
-
-                        <id>npm run build</id>
-                        <phase>compile</phase>
+                        <id>pnpm install</id>
                         <goals>
-                            <goal>exec</goal>
+                            <goal>pnpm</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <phase>generate-resources</phase>
+                        <id>pnpm build</id>
+                        <goals>
+                            <goal>pnpm</goal>
                         </goals>
                         <configuration>
-                            <executable>npm</executable>
-                            <arguments>
-                                <argument>run</argument>
-                                <argument>build</argument>
-                            </arguments>
+                            <arguments>build:sonarplugin</arguments>
                         </configuration>
                     </execution>
                 </executions>
@@ -188,7 +192,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- maven-resources-plugin to copy the website -->
+            <!-- maven-resources-plugin to copy the dashboard -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
@@ -205,7 +209,8 @@
                             <resources>
                                 <resource>
                                     <directory>../dist/assets</directory>
-                                    <targetPath>${project.build.outputDirectory}/static</targetPath>
+                                    <targetPath>
+                                        ${project.build.outputDirectory}/static</targetPath>
                                 </resource>
                             </resources>
                         </configuration>
@@ -213,7 +218,7 @@
                 </executions>
             </plugin>
 
-            <!-- maven-jar-plugin to include the website in the jar -->
+            <!-- maven-jar-plugin to include the dashboard in the jar -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
