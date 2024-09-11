@@ -2,6 +2,7 @@
 
 [![Build and Tests](https://github.com/green-code-initiative/ecoCode-dashboard/actions/workflows/build.yml/badge.svg)](https://github.com/green-code-initiative/ecoCode-dashboard/actions/workflows/build.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=green-code-initiative_ecoCode-dashboard&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=green-code-initiative_ecoCode-dashboard)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=green-code-initiative_ecoCode-dashboard&metric=coverage)](https://sonarcloud.io/summary/new_code?id=green-code-initiative_ecoCode-dashboard)
 
 This project is meant to provide Sustainable Code Dashboards to 
 - show potential impact on sustainability of unffollowed recommendations
@@ -41,7 +42,7 @@ It allows:
 ## Project Build and Start
 
 ```sh
-pnpm ci
+pnpm install
 ```
 
 Prefer `pnpm` for a faster and more secure installation with less network and disk space usage.
@@ -49,13 +50,13 @@ Prefer `pnpm` for a faster and more secure installation with less network and di
 ### Compile and Minify for Production
 
 ```sh
-npm run build
+pnpm build
 ```
 
 ### Run Unit Tests with [Vitest](https://vitest.dev/)
 
 ```sh
-npm run test:unit
+pnpm test:unit
 ```
 
 ### Run End-to-End Tests with [Playwright](https://playwright.dev)
@@ -72,17 +73,17 @@ sudo apt-get install libgtk-3-0 # for firefox
 npm run build
 
 # Runs the end-to-end tests
-npm run test:e2e
+pnpm test:e2e
 # Runs the tests only on Chromium
-npm run test:e2e -- --project=chromium
+pnpm test:e2e --project=chromium
 # Runs the tests of a specific file
-npm run test:e2e -- tests/example.spec.ts
+pnpm test:e2e tests/example.spec.ts
 # Runs the tests in debug mode
-npm run test:e2e -- --debug
+pnpm test:e2e --debug
 ```
 
 ### Lint with [ESLint](https://eslint.org/)
 
 ```sh
-npm run lint
+pnpm lint
 ```
