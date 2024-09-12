@@ -135,9 +135,7 @@ const MIME_FORM_URLENCODED = 'application/x-www-form-urlencoded'
 const MIME_JSON = 'application/json'
 
 function encodeArrayURIComponent(name, value) {
-  return value
-    .map((v) => `${name}=${encodeURIComponent(v)}`)
-    .join('&')
+  return value.map((v) => `${name}=${encodeURIComponent(v)}`).join('&')
 }
 /**
  * @class Request
@@ -327,7 +325,8 @@ async function parseError(response) {
   const DEFAULT_MESSAGE = t('default_error_message')
   try {
     return parseErrorResponse(await parseJSON(response))
-  } catch (_error) {
+  } catch (error) {
+    console.error(error)
     return DEFAULT_MESSAGE
   }
 }

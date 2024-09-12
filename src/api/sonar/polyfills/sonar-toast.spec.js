@@ -11,7 +11,7 @@ import { addGlobalErrorMessage, addGlobalSuccessMessage } from './sonar-toast'
 //vi.unmock('./sonar-i18n')
 vi.mock('vue3-toastify', async () => ({ toast: { error: vi.fn(), success: vi.fn() } }))
 
-beforeAll(()=> {
+beforeAll(() => {
   vi.resetModules()
 })
 describe('sonar toast', () => {
@@ -36,5 +36,4 @@ describe('sonar toast', () => {
     addGlobalSuccessMessage('it worked', { data: 'bar', autoClose: 3000, role: 'status' })
     expect(toast.success).toHaveBeenCalledWith('it worked', { autoClose: 3000, role: 'status' })
   })
-
 })

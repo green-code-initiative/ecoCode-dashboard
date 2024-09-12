@@ -6,7 +6,10 @@ export default {
   component: ImpactTag,
   tags: ['autodocs'],
   argTypes: {
-    impact: { control: { type: 'select' }, options: ['Optimized', 'Info', 'Low', 'Medium', 'High', 'Blocker'] }
+    impact: {
+      control: { type: 'select' },
+      options: ['Optimized', 'Info', 'Low', 'Medium', 'High', 'Blocker']
+    }
   }
 }
 

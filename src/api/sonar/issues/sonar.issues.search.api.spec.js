@@ -5,9 +5,7 @@ import { afterAll, afterEach, beforeAll, describe, expect, test } from 'vitest'
 import mockIssueList from './sonar.issues.search.mock'
 import { findIssues } from './sonar.issues.search.api'
 
-export const restHandlers = [
-  http.get('/api/issues/search', () => HttpResponse.json(mockIssueList))
-]
+export const restHandlers = [http.get('/api/issues/search', () => HttpResponse.json(mockIssueList))]
 
 const server = setupServer(...restHandlers)
 // Start server before all tests
@@ -19,7 +17,7 @@ afterEach(() => server.resetHandlers())
 
 describe('findIssues', () => {
   test('findIssues retrieve 1 issue', async () => {
-    const issues = await findIssues('foo', 'js', 'master')   
+    const issues = await findIssues('foo', 'js', 'master')
     expect(issues).toStrictEqual(mockIssueList.issues)
   })
 })

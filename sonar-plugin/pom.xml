@@ -1,0 +1,248 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <name>ecoCode SonarQube dashboard plugin</name>
+    <description>Provides a dashboard for ecoCode</description>
+    <groupId>io.ecocode</groupId>
+    <artifactId>ecocode-sonarqube-dashboard</artifactId>
+    <packaging>sonar-plugin</packaging>
+    <version>0.0.1</version>
+    <inceptionYear>2024</inceptionYear>
+    <url>https://github.com/green-code-initiative/ecoCode-dashboard.git</url>
+    <organization>
+        <name>green-code-initiative</name>
+        <url>https://github.com/green-code-initiative</url>
+    </organization>
+    <licenses>
+        <license>
+            <name>GPL-3.0-only</name>
+            <url>https://www.gnu.org/licenses/gpl-3.0-standalone.html</url>
+            <comments>GNU General Public License v3.0 only</comments>
+        </license>
+    </licenses>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <sonar.apiVersion>9.8.0.203</sonar.apiVersion>
+        <jdk.min.version>17</jdk.min.version>
+        <sonar.sources>src/main/java,src/main/js</sonar.sources>
+        <gson.version>2.9.1</gson.version>
+        <sonarjava.version>7.2.0.26923</sonarjava.version>
+        <sonarphp.version>3.23.1.8766</sonarphp.version>
+        <sonarpython.version>3.4.1.8066</sonarpython.version>
+    </properties>
+
+    <dependencies>
+        <!-- Common -->
+        <dependency>
+            <groupId>org.sonarsource.api.plugin</groupId>
+            <artifactId>sonar-plugin-api</artifactId>
+            <version>${sonar.apiVersion}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!--<dependency>
+            <groupId>org.sonarsource.java</groupId>
+            <artifactId>sonar-java-plugin</artifactId>
+            <version>${sonarjava.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.sonarsource.php</groupId>
+            <artifactId>sonar-php-plugin</artifactId>
+            <type>sonar-plugin</type>
+            <version>${sonarphp.version}</version>
+            <scope>provided</scope>
+        </dependency>-->
+        <!-- Needed by sonar php plugin, shouldn't be needed, need digging -->
+        <!-- Notice there is no <scope>provided</scope>, this because otherwise
+        scans fail
+         on Sonarqube -->
+        <dependency>
+            <groupId>org.sonarsource.sslr</groupId>
+            <artifactId>sslr-core</artifactId>
+            <version>1.24.0.633</version>
+        </dependency>
+
+        <!-- There is no <scope>provided</scope> because scan fail otherwise
+        with class not found exception -->
+        <!--<dependency>
+            <groupId>org.sonarsource.python</groupId>
+            <artifactId>sonar-python-plugin</artifactId>
+            <type>sonar-plugin</type>
+            <version>${sonarpython.version}</version>
+        </dependency>-->
+
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <version>0.10.2</version>
+        </dependency>
+
+        <!-- Tests deps (there is no php testkit because such package doesn't
+        exist for some reason ) -->
+        <dependency>
+            <groupId>org.sonarsource.java</groupId>
+            <artifactId>java-checks-testkit</artifactId>
+            <version>${sonarjava.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!--<dependency>
+            <groupId>org.sonarsource.python</groupId>
+            <artifactId>python-checks-testkit</artifactId>
+            <version>${sonarpython.version}</version>
+            <scope>test</scope>
+        </dependency>-->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.9.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <!--<resources>
+            <resource>
+                <directory>../dist</directory>
+            </resource>
+        </resources>-->
+        <plugins>
+            <plugin>
+                <groupId>org.sonarsource.sonar-packaging-maven-plugin</groupId>
+                <artifactId>sonar-packaging-maven-plugin</artifactId>
+                <version>1.23.0.740</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <pluginKey>ecocode</pluginKey>
+                    <pluginClass>io.ecocode.plugin.EcocodeDashboardPlugin</pluginClass>
+                    <!-- Optional, only if you are sure to support older
+                    versions of the plugin API than the one you are compiling
+                    against -->
+                    <!-- <pluginApiMinVersion>9.5</pluginApiMinVersion> -->
+                    <!--
+                    <requirePlugins>java:${sonarjava.version}</requirePlugins>
+                    <requirePlugins>php:${sonarphp.version}</requirePlugins>
+                    <requirePlugins>python:${sonarpython.version}</requirePlugins> -->
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
+                <configuration>
+                    <source>${jdk.min.version}</source>
+                    <target>${jdk.min.version}</target>
+                </configuration>
+            </plugin>
+
+            <!-- This plugin execute in order pnpm install and pnpm build -->
+            <!-- This allow maven to create a production build of the front app -->
+            <!-- Maven will look for files in target/classes/static folder -->
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <version>1.15.0</version>
+                <executions>
+                    <execution>
+                        <id>install node and npm</id>
+                        <goals>
+                            <goal>install-node-and-pnpm</goal>
+                        </goals>
+                        <configuration>
+                            <nodeVersion>v20.17.0</nodeVersion>
+                            <pnpmVersion>v9.5.0</pnpmVersion>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>pnpm install</id>
+                        <goals>
+                            <goal>pnpm</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <phase>generate-resources</phase>
+                        <id>pnpm build</id>
+                        <goals>
+                            <goal>pnpm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>build:sonarplugin</arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+                <version>7.1.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- maven-resources-plugin to copy the dashboard -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.outputDirectory}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>../dist/assets</directory>
+                                    <targetPath>
+                                        ${project.build.outputDirectory}/static</targetPath>
+                                </resource>
+                                <resource>
+                                    <directory>../dist/icons</directory>
+                                    <targetPath>
+                                        ${project.build.outputDirectory}/static/icons</targetPath>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- maven-jar-plugin to include the dashboard in the jar -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                        </manifest>
+                        <manifestEntries>
+                            <Class-Path>.</Class-Path>
+                        </manifestEntries>
+                    </archive>
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

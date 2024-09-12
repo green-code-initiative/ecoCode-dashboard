@@ -27,10 +27,7 @@ defineProps({
 
 <template>
   <div class="tag">
-    <component
-      :is="icons[label.toLowerCase()]"
-      :size="40"
-    />
+    <component :is="icons[label.toLowerCase()]" :size="40" />
     <p>{{ label }}</p>
   </div>
 </template>
