@@ -13,7 +13,7 @@ async function fetchIssues() {
 <template>
   <header>
     <div class="wrapper">
-      <p>You did it!</p>
+      <h1>You did it!</h1>
       <AbcdeScore value="C" />
     </div>
     <div class="wrapper">
