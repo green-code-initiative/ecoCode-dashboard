@@ -15,7 +15,6 @@
 // TODO: identify the correct way to retrieve the Sonar authentication token
 const SONAR_TOKEN = import.meta.env.VITE_SONAR_TOKEN
 
-// eslint-disable-next-line @ecocode/no-import-all-from-library
 import { memoize, omitBy, isNil } from 'lodash'
 
 import { t } from './sonar-i18n'
@@ -135,9 +134,7 @@ const MIME_FORM_URLENCODED = 'application/x-www-form-urlencoded'
 const MIME_JSON = 'application/json'
 
 function encodeArrayURIComponent(name, value) {
-  return value
-    .map((v) => `${name}=${encodeURIComponent(v)}`)
-    .join('&')
+  return value.map((v) => `${name}=${encodeURIComponent(v)}`).join('&')
 }
 /**
  * @class Request
