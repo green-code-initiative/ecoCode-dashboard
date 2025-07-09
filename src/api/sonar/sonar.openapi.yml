@@ -77,7 +77,7 @@ paths:
               - RESOLVED
         - name: tags
           description: Comma-separated list of tags.
-          example: ecocode
+          example: sustainability, creedengo, ecocode, greensight
           in: query
           style: form
           explode: false
