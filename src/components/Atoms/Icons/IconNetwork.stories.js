@@ -1,7 +1,7 @@
 import IconNetwork from './IconNetwork.vue'
 
 export default {
-  title: 'Atoms/Icons/Network',
+  title: 'Design System/Atoms/Icons/Network',
   component: IconNetwork,
   tags: ['autodocs'],
   argTypes: {
