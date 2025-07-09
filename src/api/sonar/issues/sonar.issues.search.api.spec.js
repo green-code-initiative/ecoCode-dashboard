@@ -3,7 +3,7 @@ import { HttpResponse, http } from 'msw'
 import { afterAll, afterEach, beforeAll, describe, expect, test } from 'vitest'
 
 import mockIssueList from './sonar.issues.search.mock'
-import { findIssues } from './sonar.issues.search.api'
+import { findIssues, getIssuesFacet } from './sonar.issues.search.api'
 
 export const restHandlers = [
   http.get('/api/issues/search', () => HttpResponse.json(mockIssueList))
@@ -21,5 +21,16 @@ describe('findIssues', () => {
   test('findIssues retrieve 1 issue', async () => {
     const issues = await findIssues('foo', 'js', 'master')   
     expect(issues).toStrictEqual(mockIssueList.issues)
+  })
+})
+
+describe('getIssuesFacet', () => {
+  test('getIssuesFacet severities', async () => {
+    const severityFacets = await getIssuesFacet('foo', 'master', 'severities')   
+    expect(severityFacets).toStrictEqual({
+      info: 5,
+      major: 1,
+      minor: 20,
+    })
   })
 })

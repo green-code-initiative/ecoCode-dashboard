@@ -34,7 +34,7 @@ export default {
       effort: '2h1min',
       creationDate: '2013-05-13T17:55:39+0200',
       updateDate: '2013-05-13T17:55:39+0200',
-      tags: ['bug', 'ecocode'],
+      tags: ['bug', 'creedengo'],
       comments: [
         {
           key: '7d7c56f5-7b5a-41b9-87f8-36fa70caa5ba',
@@ -133,6 +133,23 @@ export default {
   ],
   facets: [
     {
+      property: 'severities',
+      values: [
+        {
+          val: 'MAJOR',
+          count: 1
+        },
+        {
+          val: 'MINOR',
+          count: 20
+        },
+        {
+          val: 'INFO',
+          count: 5
+        },
+      ]
+    },
+    {
       property: 'cleanCodeAttributeCategories',
       values: [
         {
@@ -169,6 +186,6 @@ export default {
           count: 4495
         }
       ]
-    }
+    },
   ]
 }
