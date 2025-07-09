@@ -13,4 +13,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Deleted
 
-[unreleased](https://github.com/green-code-initiative/ecoCode-java/compare/0.0.0...HEAD)
+

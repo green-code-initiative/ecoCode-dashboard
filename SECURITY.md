@@ -1,10 +1,10 @@
-Thanks for helping make Ecocode safe for everyone.
+# Security
 
-## Security
+Thanks for helping make Creedengo safe for everyone.
 
-The **Green Code Initiative** takes the security of its software products and services seriously, including all of the open source code repositories managed through its GitHub organization, such as Ecocode.
+The **Green Code Initiative** takes the security of its software products and services seriously, including all of the open source code repositories managed through its GitHub organization, such as Creedengo.
 
-This project is controlled by SAST (Static Application Security Testing) via **Sonarcloud** 
+This project is controlled by SAST (Static Application Security Testing) via **Sonarcloud**
 
 ## Reporting Security Issues
 
@@ -12,7 +12,7 @@ If you believe you have found a security vulnerability in this repository, pleas
 
 **Please do not report security vulnerabilities through public GitHub issues, discussions, or pull requests.**
 
-To report a security issue, use instead the GitHub Security Advisory "[Report a vulnerability](https://github.com/green-code-initiative/ecoCode-dashboard/security/advisories/new) form.
+To report a security issue, use instead the GitHub Security Advisory "[Report a vulnerability](https://github.com/green-code-initiative/creedengo-dashboard/security/advisories/new) form.
 
 Please include as much of the information listed below as you can to help us better understand and resolve the issue:
 
@@ -25,6 +25,3 @@ Please include as much of the information listed below as you can to help us bet
 - Impact of the issue, including how an attacker might exploit the issue
 
 These information will help us triage and handle your report more quickly.
-
-
-
