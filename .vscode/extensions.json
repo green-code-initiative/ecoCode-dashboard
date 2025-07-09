@@ -5,6 +5,7 @@
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
     "joshbolduc.story-explorer",
-    "henrynguyen5-vsc.vsc-nvm"
+    "henrynguyen5-vsc.vsc-nvm",
+    "unifiedjs.vscode-mdx"
   ]
 }
