@@ -1,7 +1,7 @@
 import IconMaintenance from './IconMaintenance.vue'
 
 export default {
-  title: 'Atoms/Icons/Maintenance',
+  title: 'Design System/Atoms/Icons/Maintenance',
   component: IconMaintenance,
   tags: ['autodocs'],
   argTypes: {

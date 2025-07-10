@@ -1,30 +1,21 @@
 <script setup>
-import AbcdeScore from './components/Mollecules/AbcdeScore/AbcdeScore.vue'
-</script>
-
-<script>
-import { findIssues } from './api/sonar/issues/sonar.issues.search.api'
-async function fetchIssues() {
-  const issues = await findIssues('foo', 'javascript', 'main')
-  document.body.getElementsByTagName('output')[0].innerText = JSON.stringify(issues)
-}
+import ScoreWidget from './components/Widgets/Score/ScoreWidget.vue';
 </script>
 
 <template>
   <header>
-    <div class="wrapper">
-      <h1>You did it!</h1>
-      <AbcdeScore value="C" />
-    </div>
-    <div class="wrapper">
-      <input
-        type="button"
-        value="click"
-        @click="fetchIssues"
-      ><br>
-      <output />
-    </div>
+    <h1>You did it!</h1>
   </header>
+  <main>
+    <p>
+      You have successfully installed the Creedengo Dashboard plugin. This plugin is designed to help you
+      monitor and improve the sustainability of your codebase.
+    </p>
+    <ScoreWidget
+      project-key="my-project-key"
+      branch="main"
+    />
+  </main>
 </template>
 
 <style scoped>

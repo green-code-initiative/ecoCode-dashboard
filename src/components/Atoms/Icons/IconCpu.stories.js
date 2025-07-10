@@ -1,7 +1,7 @@
 import IconCpu from './IconCpu.vue'
 
 export default {
-  title: 'Atoms/Icons/CPU',
+  title: 'Design System/Atoms/Icons/CPU',
   component: IconCpu,
   tags: ['autodocs'],
   argTypes: {

@@ -5,12 +5,14 @@ This HTTP client provides an interface to the Sonarqube and Sonarcloud Web APIs
 Sonarqube has 2 versions of its Web API (v1 and v2) while Sonarcloud has only the last version (v2)
 
 Unfortunately Sonar:
+
 - Does not officially document its Web API v1 anymore
 - Does not provide an Open API version of its Web API
 
-## Ecocode Sonar Web API Support
+## Creedengo Sonar Web API Support
 
 The supported Sonar Web API are exposed in these Open API files:
+
 - [Sonarqube/Sonarcloud Web API v2](./sonar.openapi.yml)
 
 ## JavaScript Helper APIs exposed by SonarQube
@@ -28,14 +30,12 @@ In integrated Pages, Sonar exposes its vendor JavaScript API which is almost not
 It allows to be in an authenticated context so the plugin does not need authentication tokens to use the Web API
 
 > **Warning**
-> 
 > Those API are recommended for integration in the Sonar interface from a Sonar plugin BUT an alternative API call integration will have to be implemented for other targets
 
-**See below a custom API retro-documentation based on their source code**
-
-This API is exposed from this Sonar Source file: [sonar-web app/components/extensions
-/exposeLibraries.ts
-](https://github.com/SonarSource/sonarqube/blob/master/server/sonar-web/src/main/js/app/components/extensions/exposeLibraries.ts)
+> **Custom API retro-documentation based on Sonarqube source code**
+>
+> This API is exposed from this Sonar Source file: [sonar-web app/components/extensions
+/exposeLibraries.ts](https://github.com/SonarSource/sonarqube/blob/master/server/sonar-web/src/main/js/app/components/extensions/exposeLibraries.ts)
 
 ### The `window.SonarRequest` API Call methods
 

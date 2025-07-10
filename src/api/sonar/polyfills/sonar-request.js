@@ -325,6 +325,7 @@ async function parseError(response) {
   try {
     return parseErrorResponse(await parseJSON(response))
   } catch (_error) {
+    console.error('Error parsing error response:', _error)
     return DEFAULT_MESSAGE
   }
 }

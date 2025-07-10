@@ -1,7 +1,7 @@
 import IconDisk from './IconDisk.vue'
 
 export default {
-  title: 'Atoms/Icons/Disk',
+  title: 'Design System/Atoms/Icons/Disk',
   component: IconDisk,
   tags: ['autodocs'],
   argTypes: {

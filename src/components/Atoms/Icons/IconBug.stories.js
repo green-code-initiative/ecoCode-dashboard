@@ -1,7 +1,7 @@
 import IconBug from './IconBug.vue'
 
 export default {
-  title: 'Atoms/Icons/Bug',
+  title: 'Design System/Atoms/Icons/Bug',
   component: IconBug,
   tags: ['autodocs'],
   argTypes: {
