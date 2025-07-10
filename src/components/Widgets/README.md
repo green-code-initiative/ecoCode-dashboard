@@ -1,10 +1,9 @@
-# Creedengo Widgets
+## Creedengo Widgets
 
 Widgets are standalone components binding visual components to feature services. 
 They can use configurations and some parameters to target code analyse results.
 
-
-![](../../documentation/dashboard-widgets.png)
+![widgets](../../../documentation/dashboard-widgets.png)
 
 They are meant to be used to create dashboards usable throught
 
